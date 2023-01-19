@@ -1,0 +1,97 @@
+CSS elemkijelölők (selectors)
+
+Az elemkijelölők „megtalálják” a weblapon szereplő elemeket (tag-ek), és általuk formázást is adhatunk ezen elemeknek.
+
+Elem kijelölő (tag selector)
+p {
+  text-align: center;
+  color: red;
+}
+Minden p típusú elemet (<p></p> tag-et) „megtalál”, és ezekre lesz érvényes a formázás.
+Azonosító kijelölő (id selector)
+#paragraph1 {
+  text-align: center;
+  color: red;
+}
+Azt az elemet „találja meg”, amelynek az azonosítója paragraph1, és erre lesz érvényes a formázás.
+Azonosító beállítása egy elemre (a HTML kódban):
+<p id="paragraph1">Bekezdés szövege!</p>
+Egy konkrét HTML elemnek adjuk az azonosítót.
+Osztály kijelölő (class selector)
+.piros {
+  color: red;
+}
+Azokat az elemeket „találja meg”, amelynek az osztálya piros, és ezekre lesz érvényes a formázás.
+Osztály beállítása egy elemre (a HTML kódban):
+<p class="piros">Bekezdés szövege!</p>
+Több különböző HTML elemnek adhatjuk az osztályt.
+
+Kijelölők csoportja 
+h1, h2, h3 {
+  text-align: center;
+  color: red;
+}
+Minden h1 vagy h2 vagy h3 típusú elemet „megtalál”, és ezekre lesz érvényes a formázás. 
+Használható osztály és azonosító kijelölőkkel is:
+.egy, .ketto {
+  text-align: center;
+}
+Korlátozott kijelölő (class vagy id)
+p.center {
+  text-align: center;
+  color: red;
+}
+p.center (nincs szóköz a pont előtt!)
+Azokat a p típusú elemeket „találja meg”, amelynek az osztálya center, és ezekre lesz érvényes a formázás. Más típusú elemekre (pl. h1) nincs hatással, hiába „center” az osztályuk. Azonosítóra (id) is alkalmazható.
+Elemen belüli (gyerek) kijelölő 
+p img {
+  border: 1px solid black;
+}
+Azokat az img típusú elemeket „találja meg”, amelyek p típusú elemen belül vannak (beágyazva), és ezekre lesz érvényes a formázás. 
+pl. <p ><img src="minta.jpg"> </p>
+Csak azokra az img elemekre lesz érvényes, amelyek egy p elemen belül vannak (beágyazva). 
+VAGY
+p .egy {
+  border: 1px solid black;
+}
+p .egy (szóköz van a pont előtt!)
+Azokat az elemeket „találja meg”, amelyek az osztályának neve egy, és p típusú elemen belül vannak (beágyazva), és ezekre lesz érvényes a formázás. 
+pl. <p ><img class="egy" src="minta.jpg"> </p>
+Megjegyzés: a beágyazás lehet többszörös is pl.
+div img {
+  border: 1px solid black;
+}
+<div ><img src="minta.jpg"> </div>
+<div >
+<p >
+<img src="minta2.jpg"> 
+</p>
+</div>
+Mindkét képre érvényes lesz a formázás, mivel egy div elemen belül található, nem számít, hogy a div-en belül másik elemen belül van a kép.
+Közvetlen gyerek kijelölő 
+div > img {
+  border: 1px solid black;
+}
+Azokat az img típusú elemeket „találja meg”, amelyek közvetlenül egy div típusú elemen belül vannak (beágyazva), és ezekre lesz érvényes a formázás.
+pl. érvényes erre a képre:
+ <div ><img src="minta.jpg"> </div>
+pl. nem érvényes erre a képre, mert közvetlenül egy p elemen belül van, nem a div-en belül:
+<div >
+<p >
+<img src="minta2.jpg"> 
+</p>
+</div>
+
+Adott tulajdonságú elem kijelölő 
+td[colspan=2] {
+  border: 1px solid black;
+}
+Azokat a táblázat cella (td) típusú elemeket „találja meg”, amelyek colspan tulajdonságának értéke 2-vel egyenlő), és ezekre lesz érvényes a formázás.
+pl. érvényes az első cellára, de a másodikra nem:
+ <table>
+<tr> 
+<td colspan=2> Cím </td> 
+<td > Megjegyzés </td> 
+</tr> 
+</table>
+Általában űrlap elemeknél haszhnáljuk, mint pl input[type=text] (azaz szöveges beviteli mező), de bármilyen elem-tulajdonságra működik.

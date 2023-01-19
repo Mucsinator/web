@@ -1,0 +1,95 @@
+Elemek formázásának CSS jellemzői (properties)
+
+Mértékegységek
+px	pixel
+pt	pont (szövegszerkesztésben használt)
+em	az aktuális elem sormagasságához mért (1em = 1sor magas)	
+rem	a html elem sormagasságához mért (2em = kétszerese a html-bel megadott betűméret sormagasságának)		
+vw	a képernyő szélességi méretének 1%-ának többszöröse	
+vh	a képernyő magassági méretének 1%-ának többszöröse	
+%	a szülő elem méretéhez képest százalékban
+
+Szöveg
+font-style: italic – betűstílus dőlt
+font-weight: bold – betűstílus félkövér
+font-family: betűtípusnév – pl. Arial, Times New Roman
+font-size: 12pt – betű mérete
+font-variant: small-caps – kiskapitális
+text-transform: uppercase – csupa nagybetűs (uppercase), 
+nagy kezdőbetűs(capitalize), kisbetűs(lowercase) stb.
+text-decoration: none – aláhúzott(underline) vagy nem(none)
+line-height: 1.5em – sormagasság
+text-align: center – bekezdés igazítás left(bal), right(jobb), center(középre), justify(sorkizárt)
+text-indent: 10px – első soros behúzás
+letter-spacing: 1px – a betűk közti plusz távolságot (betűköz) adja meg
+color: white – szöveg színe 
+color: blue; 
+color: #336600; 
+color: rgb(20,230,100); 
+color: rgba(20,230,100,0.4) 	//az utolsó érték az átlátszóság 0.4 = 40%-ban látszik, 
+azaz 60%-ban átlátszó
+Listák
+ list-style-type – listajel (forma vagy számozás)
+(circle, square, upper-roman, lower.alpha)
+ list-style-image – listajel képfájlból 
+list-style-image: url('kep.gif')
+ list-style-position – listajel pozíció 
+(a <li> tartalmának kezdődpontjához képest hova kerül a jel)
+(outside, inside) a jel a listaelemen kívül van (pl. kilóg a szöveg kezdőpontja elé), 
+vagy belül (a jel ott kezdődik, ahol az elem pl a szöveg eleje lenne, eltoltja a szöveget)
+div blokk formázása
+background-color – háttérszín (kitöltőszín)
+opacity: 0.3 – az elem láthatósága (0.3 = 70%-ban átlátszó)
+box-shadow – az elem árnyéka
+	box-shadow: 5px 10px red 
+értékek: – jobb oldali méret, alsó méret, szín
+border: 2px dashed black – keretezés; 
+értékek:(vastagság vonalstílus szín)
+	vonalstílusok: solid (teli), dashed (szaggatott), dotted (pontozott)
+ box-sizing: content-box – az elem méretére hatással van a tartalma és belső margó (padding) pl. a szélessége 100px és a padding 10px, akkor az elem teljes szélessége 120px lesz.
+ box-sizing: border-box – az elem méretére nincs hatással a tartalma és belső margó (padding) pl. a szélessége 100px és a padding 10px, akkor az elem teljes szélessége 100px marad. (A tartalma kilóghat)
+width – szélesség 
+height – magasság 
+display – megjelenési mód
+	block – (alapértelmezett a div-nél) egy teljes sort elfoglal
+	none – az elem eltűnik az oldalról, a helyére a többi elem kerül
+visibility – láthatóság
+	visible – az elem látható
+	hidden – az elem láthatalan, de a helye megmarad (üresen)
+
+position – helyzete az oldalon
+static	– az oldalon belüli helyén marad és nem szolgál kiindulási pontként a gyerek objektumainak 
+relative 	– az oldalon belüli helyének pozíciójához képest eltolva jelenik meg
+absolute	– a szülő objektumához képest eltolva jelenik meg
+fixed 	– az oldal ablakához igazodik, semmi máshoz, így a pozíciója nem változik görgetéskor
+Az elem pozíciójának eltolása az alapértelmezett helyétől 
+(az érték negatív is lehet):
+top: 10px – a pozíciójának eltolása fentről
+bottom: 10px – a pozíciójának eltolása lentről
+left: -10px – a pozíciójának eltolása balról
+right: 100px – a pozíciójának eltolása jobbról
+pl. absolute pozícióval jobbra és alulra igazítható:
+position: absolute;
+right: 0px;
+bottom: 0px;
+
+z-index: 3 – az értéke meghatározza, hogy egymásra takaró elemek közül melyik legyen felül. Az van felül, amelyiknek nagyobb az értéke.
+Csak beállított position jellemzővel működik, ha nincs megadva position, akkor nem!
+overflow – mi történjen, ha az elem tartalma nem férne el
+overflow: hidden – a kilógó rész levágódik, nem látszik
+overflow: visible – a kilógó rész kicsúszik, kilóg az elemből
+overflow: scroll – megjelenik egy görgetősáv, amivel a kilógó rész végéhez lehet lapozni.
+overflow: auto – megjelenik egy görgetősáv, de csak abban az irányban, amelyikben nem fér el a tartalom.
+
+float – az utána következő elemekhez képest left(balra) vagy right(jobbra) igazodik (úszik)
+clear – nem úszhat be másik elem mellé left(balról), right(jobbról) vagy both(mindkét oldalról)
+
+margin – az elem kürüli margó (távolság más elemektől)
+	megadása: 
+10px 20px 30px 40px – fent 10px, jobb oldalt 20px, lent 30px, bal oldalt 40px
+10px 30px – fent és lent 10px, jobb és bal oldalt 30px
+10px – minden oldalon 10px
+auto – vízszintesen középre igazodik
+10px auto – lent és fent 10px, és vízszintesen középre igazodik
+padding – az elemen belüli margó (tartalmának távolsága a széleitől)
+megadása: ugyanúgy, mint a margin, de auto érték nincs
